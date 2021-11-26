@@ -1,0 +1,37 @@
+a) use SDG
+
+b) db.createCollection("SDG_2")
+
+c) db.SDG_2.insert([{GOAL: 2,
+TARGET: "2.1",
+INDICATOR: "2.1.2",
+SERIES_CODE: "AG_PRD_FIESMS",
+SERIES_DESCRIPRITION: "Prevalence of moderate or severe food insecurity in the adult population (%)",
+GEO_AREA_NAME: "Austria",
+TIME_PERIOD: "2015",
+VALUES: 3.8},
+
+{GOAL: 2,
+TARGET: "2.c",
+INDICATOR: "2.c.1",
+SERIES_DESCRIPRITION: "Indicator of Food Price Anomalies (IFPA), by type of product",
+GEO_AREA_NAME: "Mozambique",
+TIME_PERIOD: "2016",
+VALUES: 3.4},
+
+{GOAL: 2,
+TARGET: "2.a",
+INDICATOR: "2.a.1",
+AG_PRD_AGVAS: "",
+SERIES_DESCRIPRITION:
+"Agriculture value added share of GDP (%)", 
+GEO_AREA_NAME: "Marshall Islands",
+TIME_PERIOD: "2019",
+VALUES: 15.80}])
+
+d) db.SDG_2.find({VALUES: {$lt: 10}, TIME_PERIOD: "2016"})
+
+
+e) db.SDG_2.updateOne({INDICATOR: "2.a.1"}, {$set:{VALUES: 16.85}})
+
+f) db.SDG_2.deleteOne({TARGET: "2.c"})
